@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BelkiSolutions - WiFi Login Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="wave wave-1"></div>
+        <div class="wave wave-2"></div>
+        <div class="wave wave-3"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Initial Loading Screen -->
+    <div class="initial-loader" id="initialLoader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <i class="fas fa-wifi"></i>
+            </div>
+            <h1 class="loader-brand">Belki<span>Solutions</span></h1>
+            <div class="loader-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <p class="loader-text">Connecting to BelkiSolutions WiFi...</p>
+            <div class="loader-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="mainHeader" style="display: none;">
+        <div class="logo">
+            <i class="fas fa-wifi wifi-pulse"></i>
+            <span class="brand">Belki<span class="brand-highlight">Solutions</span></span>
+        </div>
+        <div class="header-info">
+            <span class="status-dot"></span>
+            <span>Network Online</span>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container" id="mainContent" style="display: none;">
+        <!-- ============================================
+             HERO SECTION (FIXED - NO ROTATING ICON)
+             Still WiFi Icon with Growing Network Waves
+             ============================================ -->
+        <section class="hero">
+            <div class="hero-signal">
+                <div class="hero-wave"></div>
+                <div class="hero-wave hero-wave-2"></div>
+                <div class="hero-wave hero-wave-3"></div>
+                <div class="hero-wave hero-wave-4"></div>
+                <div class="hero-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+            </div>
+            <h1 class="hero-title">BelkiSolutions WiFi Login</h1>
+            <p class="hero-subtitle">High-Speed Internet at Affordable Prices</p>
+        </section>
+
+        <!-- How To Purchase -->
+        <section class="info-card how-to-card">
+            <div class="card-header">
+                <i class="fas fa-info-circle"></i>
+                <h2>How To Purchase</h2>
+            </div>
+            <ol class="steps-list">
+                <li class="step-item">
+                    <span class="step-number">1</span>
+                    <span class="step-text">Tap on your preferred package</span>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">2</span>
+                    <span class="step-text">Enter your phone number</span>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">3</span>
+                    <span class="step-text">Click <strong>"PAY NOW"</strong></span>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">4</span>
+                    <span class="step-text">Enter your M-Pesa PIN, wait 30sec for M-Pesa authentication</span>
+                </li>
+            </ol>
+            <div class="contact-info">
+                <i class="fas fa-headset"></i>
+                <span>Customer Care: <a href="tel:0791972204">0791972204</a></span>
+            </div>
+        </section>
+
+        <!-- Pricing Packages -->
+        <section class="packages-section">
+            <h2 class="section-title">
+                <i class="fas fa-tags"></i>
+                Choose Your Package
+            </h2>
+            <div class="packages-grid">
+                <!-- 1 Hour -->
+                <div class="package-card">
+                    <div class="package-badge">Starter</div>
+                    <div class="package-duration">
+                        <i class="fas fa-clock"></i>
+                        <span>1 HOUR</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="currency">KSH</span>
+                        <span class="amount">5</span>
+                        <span class="cents">/-</span>
+                    </div>
+                    <div class="package-speed">
+                        <i class="fas fa-bolt"></i>
+                        MAX 20 Mbps
+                    </div>
+                    <button class="buy-btn" onclick="selectPackage('1 HOUR', 5)">
+                        <i class="fas fa-shopping-cart"></i> BUY NOW
+                    </button>
+                </div>
+
+                <!-- 3 Hours -->
+                <div class="package-card">
+                    <div class="package-duration">
+                        <i class="fas fa-clock"></i>
+                        <span>3 HOURS</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="currency">KSH</span>
+                        <span class="amount">10</span>
+                        <span class="cents">/-</span>
+                    </div>
+                    <div class="package-speed">
+                        <i class="fas fa-bolt"></i>
+                        MAX 20 Mbps
+                    </div>
+                    <button class="buy-btn" onclick="selectPackage('3 HOURS', 10)">
+                        <i class="fas fa-shopping-cart"></i> BUY NOW
+                    </button>
+                </div>
+
+                <!-- 6 Hours -->
+                <div class="package-card popular">
+                    <div class="package-badge popular-badge">Popular</div>
+                    <div class="package-duration">
+                        <i class="fas fa-clock"></i>
+                        <span>6 HOURS</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="currency">KSH</span>
+                        <span class="amount">15</span>
+                        <span class="cents">/-</span>
+                    </div>
+                    <div class="package-speed">
+                        <i class="fas fa-bolt"></i>
+                        MAX 20 Mbps
+                    </div>
+                    <button class="buy-btn" onclick="selectPackage('6 HOURS', 15)">
+                        <i class="fas fa-shopping-cart"></i> BUY NOW
+                    </button>
+                </div>
+
+                <!-- 12 Hours -->
+                <div class="package-card">
+                    <div class="package-duration">
+                        <i class="fas fa-clock"></i>
+                        <span>12 HOURS</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="currency">KSH</span>
+                        <span class="amount">20</span>
+                        <span class="cents">/-</span>
+                    </div>
+                    <div class="package-speed">
+                        <i class="fas fa-bolt"></i>
+                        MAX 20 Mbps
+                    </div>
+                    <button class="buy-btn" onclick="selectPackage('12 HOURS', 20)">
+                        <i class="fas fa-shopping-cart"></i> BUY NOW
+                    </button>
+                </div>
+
+                <!-- 24 Hours -->
+                <div class="package-card best-value">
+                    <div class="package-badge best-badge">Best Value</div>
+                    <div class="package-duration">
+                        <i class="fas fa-calendar-day"></i>
+                        <span>24 HOURS</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="currency">KSH</span>
+                        <span class="amount">30</span>
+                        <span class="cents">/-</span>
+                    </div>
+                    <div class="package-speed">
+                        <i class="fas fa-bolt"></i>
+                        MAX 20 Mbps
+                    </div>
+                    <button class="buy-btn" onclick="selectPackage('24 HOURS', 30)">
+                        <i class="fas fa-shopping-cart"></i> BUY NOW
+                    </button>
+                </div>
+
+                <!-- 2 Days -->
+                <div class="package-card">
+                    <div class="package-duration">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>2 DAYS</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="currency">KSH</span>
+                        <span class="amount">55</span>
+                        <span class="cents">/-</span>
+                    </div>
+                    <div class="package-speed">
+                        <i class="fas fa-bolt"></i>
+                        MAX 20 Mbps
+                    </div>
+                    <button class="buy-btn" onclick="selectPackage('2 DAYS', 55)">
+                        <i class="fas fa-shopping-cart"></i> BUY NOW
+                    </button>
+                </div>
+
+                <!-- 3 Days -->
+                <div class="package-card">
+                    <div class="package-duration">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>3 DAYS</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="currency">KSH</span>
+                        <span class="amount">85</span>
+                        <span class="cents">/-</span>
+                    </div>
+                    <div class="package-speed">
+                        <i class="fas fa-bolt"></i>
+                        MAX 20 Mbps
+                    </div>
+                    <button class="buy-btn" onclick="selectPackage('3 DAYS', 85)">
+                        <i class="fas fa-shopping-cart"></i> BUY NOW
+                    </button>
+                </div>
+
+                <!-- Weekly -->
+                <div class="package-card">
+                    <div class="package-duration">
+                        <i class="fas fa-calendar-week"></i>
+                        <span>WEEKLY</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="currency">KSH</span>
+                        <span class="amount">150</span>
+                        <span class="cents">/-</span>
+                    </div>
+                    <div class="package-speed">
+                        <i class="fas fa-bolt"></i>
+                        MAX 20 Mbps
+                    </div>
+                    <button class="buy-btn" onclick="selectPackage('WEEKLY', 150)">
+                        <i class="fas fa-shopping-cart"></i> BUY NOW
+                    </button>
+                </div>
+
+                <!-- 2 Weeks -->
+                <div class="package-card">
+                    <div class="package-duration">
+                        <i class="fas fa-calendar-week"></i>
+                        <span>2 WEEKS</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="currency">KSH</span>
+                        <span class="amount">280</span>
+                        <span class="cents">/-</span>
+                    </div>
+                    <div class="package-speed">
+                        <i class="fas fa-bolt"></i>
+                        MAX 20 Mbps
+                    </div>
+                    <button class="buy-btn" onclick="selectPackage('2 WEEKS', 280)">
+                        <i class="fas fa-shopping-cart"></i> BUY NOW
+                    </button>
+                </div>
+
+                <!-- 1 Month -->
+                <div class="package-card premium">
+                    <div class="package-badge premium-badge">Premium</div>
+                    <div class="package-duration">
+                        <i class="fas fa-calendar"></i>
+                        <span>1 MONTH</span>
+                    </div>
+                    <div class="package-price">
+                        <span class="currency">KSH</span>
+                        <span class="amount">500</span>
+                        <span class="cents">/-</span>
+                    </div>
+                    <div class="package-speed">
+                        <i class="fas fa-bolt"></i>
+                        MAX 20 Mbps
+                    </div>
+                    <button class="buy-btn" onclick="selectPackage('1 MONTH', 500)">
+                        <i class="fas fa-shopping-cart"></i> BUY NOW
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reconnect Account -->
+        <section class="info-card reconnect-card">
+            <div class="card-header">
+                <i class="fas fa-redo"></i>
+                <h2>Reconnect Account</h2>
+            </div>
+            <p class="card-description">
+                Enter M-Pesa code below from the payment you made 
+                <span class="example-code">e.g: <strong>QAH9QWWZRR</strong></span>
+            </p>
+            <form class="reconnect-form" id="reconnectForm">
+                <div class="input-group">
+                    <i class="fas fa-receipt"></i>
+                    <input type="text" id="mpesaCode" placeholder="Enter M-Pesa Transaction Code" required maxlength="12" style="text-transform: uppercase;">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" id="reconnectPhone" placeholder="Enter Phone Number" required pattern="[0-9]{10}">
+                </div>
+                <button type="submit" class="action-btn reconnect-btn">
+                    <i class="fas fa-link"></i> RECONNECT
+                </button>
+            </form>
+        </section>
+
+        <!-- Voucher Recharge -->
+        <section class="info-card voucher-card">
+            <div class="card-header">
+                <i class="fas fa-ticket-alt"></i>
+                <h2>Voucher Recharge</h2>
+            </div>
+            <p class="card-description">
+                Call admin for voucher recharge in case your payment is not successful
+            </p>
+            <form class="voucher-form" id="voucherForm">
+                <div class="input-group">
+                    <i class="fas fa-key"></i>
+                    <input type="text" id="voucherCode" placeholder="Enter Voucher Code" required style="text-transform: uppercase;">
+                </div>
+                <button type="submit" class="action-btn voucher-btn">
+                    <i class="fas fa-bolt"></i> RECHARGE NOW
+                </button>
+            </form>
+            <div class="admin-contact">
+                <i class="fas fa-phone-volume"></i>
+                <span>Admin Support: <a href="tel:0791972204">0791972204</a></span>
+            </div>
+        </section>
+
+        <!-- Login Section -->
+        <section class="info-card login-card-section">
+            <div class="card-header">
+                <i class="fas fa-sign-in-alt"></i>
+                <h2>BelkiSolutions WiFi Login</h2>
+            </div>
+            <p class="card-description">
+                Enter your username plus password to login
+            </p>
+            <form class="login-form" id="loginForm">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="loginUsername" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                </div>
+                <button type="submit" class="action-btn login-btn-section">
+                    <i class="fas fa-wifi"></i> LOGIN
+                </button>
+            </form>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure</h3>
+                <p>Encrypted connection</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-tachometer-alt"></i>
+                <h3>Fast</h3>
+                <p>Up to 20 Mbps speed</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-headset"></i>
+                <h3>24/7 Support</h3>
+                <p>Always here to help</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <i class="fas fa-mobile-alt"></i>
+                <h2>M-Pesa Payment</h2>
+            </div>
+            <div class="modal-body">
+                <div class="package-summary">
+                    <p>Package: <strong id="modalPackage"></strong></p>
+                    <p>Amount: <strong id="modalAmount"></strong></p>
+                </div>
+                <form id="paymentForm">
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="paymentPhone" placeholder="Enter M-Pesa Phone Number (e.g. 0712345678)" required pattern="[0-9]{10}">
+                    </div>
+                    <button type="submit" class="action-btn pay-now-btn">
+                        <i class="fas fa-money-bill-wave"></i> PAY NOW
+                    </button>
+                </form>
+                <p class="modal-note">
+                    <i class="fas fa-info-circle"></i>
+                    You will receive an M-Pesa prompt on your phone
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Verification Loader -->
+    <div class="payment-loader" id="paymentLoader">
+        <div class="loader-backdrop"></div>
+        <div class="loader-box">
+            <!-- Still WiFi Icon with Growing Network Waves -->
+            <div class="signal-container">
+                <div class="signal-wave"></div>
+                <div class="signal-wave wave-2"></div>
+                <div class="signal-wave wave-3"></div>
+                <div class="signal-wave wave-4"></div>
+                <div class="signal-wave wave-5"></div>
+                <div class="signal-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <div class="signal-status">
+                    <span class="status-pulse"></span>
+                    <span>BROADCASTING</span>
+                </div>
+            </div>
+
+            <!-- Stage Title -->
+            <h2 class="loader-stage-title" id="loaderStageTitle">Initiating Payment</h2>
+            
+            <!-- Stage Description -->
+            <p class="loader-stage-desc" id="loaderStageDesc">
+                Connecting to M-Pesa gateway...
+            </p>
+
+            <!-- Progress Steps -->
+            <div class="progress-steps">
+                <div class="progress-step" id="step1">
+                    <div class="step-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="step-label">Sending STK Push</div>
+                    <div class="step-loader"></div>
+                </div>
+                <div class="progress-line" id="line1"></div>
+                <div class="progress-step" id="step2">
+                    <div class="step-icon">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <div class="step-label">Awaiting PIN</div>
+                    <div class="step-loader"></div>
+                </div>
+                <div class="progress-line" id="line2"></div>
+                <div class="progress-step" id="step3">
+                    <div class="step-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="step-label">Verifying Payment</div>
+                    <div class="step-loader"></div>
+                </div>
+                <div class="progress-line" id="line3"></div>
+                <div class="progress-step" id="step4">
+                    <div class="step-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div class="step-label">Activation</div>
+                    <div class="step-loader"></div>
+                </div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-display">
+                <div class="countdown-circle">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="countdown-bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="countdown-progress" id="countdownProgress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="countdown-text">
+                        <span id="countdownNumber">30</span>
+                        <small>sec</small>
+                    </div>
+                </div>
+                <p class="countdown-label">Time remaining to enter M-Pesa PIN</p>
+            </div>
+
+            <!-- Transaction Details -->
+            <div class="transaction-info" id="transactionInfo">
+                <div class="tx-row">
+                    <span class="tx-label">Package:</span>
+                    <span class="tx-value" id="txPackage">-</span>
+                </div>
+                <div class="tx-row">
+                    <span class="tx-label">Amount:</span>
+                    <span class="tx-value" id="txAmount">-</span>
+                </div>
+                <div class="tx-row">
+                    <span class="tx-label">Phone:</span>
+                    <span class="tx-value" id="txPhone">-</span>
+                </div>
+                <div class="tx-row">
+                    <span class="tx-label">Transaction ID:</span>
+                    <span class="tx-value tx-id" id="txId">Generating...</span>
+                </div>
+            </div>
+
+            <!-- Cancel Button -->
+            <button class="loader-cancel-btn" id="loaderCancelBtn" onclick="cancelPayment()">
+                <i class="fas fa-times"></i> Cancel Payment
+            </button>
+        </div>
+    </div>
+
+    <!-- Success Animation Overlay -->
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-content">
+            <div class="success-checkmark">
+                <svg class="checkmark-svg" viewBox="0 0 52 52">
+                    <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+            <h2 class="success-title">Payment Successful!</h2>
+            <p class="success-message" id="successMessage">Your package has been activated</p>
+            <div class="success-details" id="successDetails"></div>
+            <div class="success-loader-bar">
+                <div class="success-loader-fill"></div>
+            </div>
+            <p class="success-redirect">Redirecting to login page...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Footer -->
+    <footer class="footer" id="mainFooter" style="display: none;">
+        <p>&copy; 2025 BelkiSolutions WiFi. All Rights Reserved.</p>
+        <p class="footer-contact">
+            <i class="fas fa-phone"></i> Customer Care: <a href="tel:0791972204">0791972204</a>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
